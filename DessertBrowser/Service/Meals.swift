@@ -8,7 +8,7 @@
 import Foundation
 
 /// Condensed meal information for list browsing
-struct MealBase: Codable {
+struct MealBase: Codable, Hashable {
   let name: String
   let thumbnailURL: String
   let id: String
