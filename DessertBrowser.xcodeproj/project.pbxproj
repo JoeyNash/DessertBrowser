@@ -15,6 +15,7 @@
 		920B6A8C2C6B863E003E3A84 /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B6A8B2C6B863E003E3A84 /* MealService.swift */; };
 		920B6A9E2C6B917F003E3A84 /* DessertThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B6A9D2C6B917F003E3A84 /* DessertThumbnailView.swift */; };
 		920B6AA02C6C2FB9003E3A84 /* DessertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B6A9F2C6C2FB9003E3A84 /* DessertDetailView.swift */; };
+		920B6AA22C6CFF4D003E3A84 /* LoadingViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B6AA12C6CFF4D003E3A84 /* LoadingViewOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		920B6A8B2C6B863E003E3A84 /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
 		920B6A9D2C6B917F003E3A84 /* DessertThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertThumbnailView.swift; sourceTree = "<group>"; };
 		920B6A9F2C6C2FB9003E3A84 /* DessertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertDetailView.swift; sourceTree = "<group>"; };
+		920B6AA12C6CFF4D003E3A84 /* LoadingViewOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				920B6A7C2C6ADFAF003E3A84 /* DessertListView.swift */,
 				920B6A9D2C6B917F003E3A84 /* DessertThumbnailView.swift */,
 				920B6A9F2C6C2FB9003E3A84 /* DessertDetailView.swift */,
+				920B6AA12C6CFF4D003E3A84 /* LoadingViewOverlay.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				920B6A9E2C6B917F003E3A84 /* DessertThumbnailView.swift in Sources */,
 				920B6A7D2C6ADFAF003E3A84 /* DessertListView.swift in Sources */,
 				920B6A7B2C6ADFAF003E3A84 /* DessertBrowserApp.swift in Sources */,
+				920B6AA22C6CFF4D003E3A84 /* LoadingViewOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

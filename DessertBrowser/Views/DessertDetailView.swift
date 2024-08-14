@@ -12,6 +12,7 @@ class DessertDetailViewModel: ObservableObject {
   @Published var mealDetails: MealDetails = MealDetails(id: "", name: "", thumbnailURL: "", instructions: "")
   @Published var isShowingError = false
   @Published var error: Error? = nil
+  @Published var isLoading = true
 
   init(id: String) {
     self.id = id
@@ -26,9 +27,11 @@ struct DessertDetailView: View {
     Task { @MainActor in
       do {
         viewModel.mealDetails = try await service.getDessertDetails(for: viewModel.id)
+        viewModel.isLoading = false
       } catch let error {
         viewModel.error = error
         viewModel.isShowingError = true
+        viewModel.isLoading = false
       }
     }
   }
@@ -58,6 +61,7 @@ struct DessertDetailView: View {
         Text(viewModel.mealDetails.instructions)
           .padding()
       }
+      .modifier(LoadingViewOverlay(isShowing: viewModel.isLoading))
       .alert(viewModel.error.debugDescription, isPresented: $viewModel.isShowingError) {
         Button("Retry", role: .cancel) {
           viewModel.isShowingError = false
