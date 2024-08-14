@@ -11,7 +11,7 @@ import SwiftUI
 struct DessertBrowserApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DessertListView()
         }
     }
 }

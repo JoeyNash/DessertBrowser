@@ -12,7 +12,7 @@ protocol MealService {
   func getDessertDetails(for id: String) async throws -> MealDetails
 }
 
-class MealServiceAPI: MealService {
+class MealServiceAPI: MealService, ObservableObject {
 
   private static var decoder: JSONDecoder = {
     let decoder = JSONDecoder()
