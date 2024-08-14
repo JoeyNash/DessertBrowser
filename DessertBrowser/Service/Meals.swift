@@ -30,16 +30,7 @@ struct MealDetails: Codable {
     id: String,
     name: String,
     thumbnailURL: String,
-    drink: String? = nil,
-    category: String,
-    originRegion: String,
     instructions: String,
-    tags: String,
-    youtubeURL: String,
-    source: String? = nil,
-    imageSource: String? = nil,
-    creativeCommonsConfirmed: String? = nil,
-    dateModified: Date? = nil,
     ingredient1: String? = nil,
     ingredient2: String? = nil,
     ingredient3: String? = nil,
@@ -84,16 +75,7 @@ struct MealDetails: Codable {
     self.id = id
     self.name = name
     self.thumbnailURL = thumbnailURL
-    self.drink = drink
-    self.category = category
-    self.originRegion = originRegion
     self.instructions = instructions
-    self.tags = tags
-    self.youtubeURL = youtubeURL
-    self.source = source
-    self.imageSource = imageSource
-    self.creativeCommonsConfirmed = creativeCommonsConfirmed
-    self.dateModified = dateModified
     self.ingredient1 = ingredient1
     self.ingredient2 = ingredient2
     self.ingredient3 = ingredient3
@@ -140,16 +122,7 @@ struct MealDetails: Codable {
   let id: String
   let name: String
   let thumbnailURL: String
-  let drink: String?
-  let category: String
-  let originRegion: String
   let instructions: String
-  let tags: String
-  let youtubeURL: String
-  let source: String?
-  let imageSource: String?
-  let creativeCommonsConfirmed: String?
-  let dateModified: Date?
   // Ingredients
   let ingredient1: String?
   let ingredient2: String?
@@ -380,16 +353,7 @@ struct MealDetails: Codable {
     case name = "strMeal"
     case thumbnailURL = "strMealThumb"
     case id = "idMeal"
-    case drink = "strDrinkAlternate"
-    case category = "strCategory"
-    case originRegion = "strArea"
     case instructions = "strInstructions"
-    case tags = "strTags"
-    case youtubeURL = "strYoutube"
-    case source = "strSource"
-    case imageSource = "strImageSource"
-    case creativeCommonsConfirmed = "strCreativeCommonsConfirmed"
-    case dateModified
     
     case ingredient1 = "strIngredient1"
     case ingredient2 = "strIngredient2"
