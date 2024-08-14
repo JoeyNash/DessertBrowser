@@ -15,8 +15,6 @@ struct DessertDetailView: View {
   var body: some View {
     ScrollView {
       VStack(alignment: .center, spacing: 12) {
-        Text(mealDetails.name)
-          .padding()
         AsyncImage(url: URL(string: mealDetails.thumbnailURL)) { image in
           image
             .resizable()
@@ -26,11 +24,17 @@ struct DessertDetailView: View {
             .progressViewStyle(.circular)
         }
         .frame(width: 200, height: 200)
+        Text("Ingredients:")
+          .fontWeight(.bold)
+          .padding()
         LazyVStack {
           ForEach(mealDetails.ingredientMeasuresStrings, id: \.self) { ingredient in
             Text(ingredient)
           }
         }
+        Text("Instructions:")
+          .fontWeight(.bold)
+          .padding()
         Text(mealDetails.instructions)
           .padding()
       }

@@ -21,6 +21,7 @@ struct DessertListView: View {
             NavigationLink {
               DessertDetailView(id: meal.id)
                 .environmentObject(service)
+                .navigationTitle(meal.name)
             } label: {
               DessertThumbnailView(meal: meal)
                 .shadow(color: .gray, radius: 5)
@@ -28,8 +29,8 @@ struct DessertListView: View {
           }
         }
       }
+      .navigationBarTitle("Desserts", displayMode: .inline)
     }
-    .navigationBarTitle(Text("Desserts"))
     .task {
       do {
         meals = try await service.getDessertList()
