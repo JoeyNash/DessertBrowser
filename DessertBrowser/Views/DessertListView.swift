@@ -7,19 +7,34 @@
 
 import SwiftUI
 
+class DessertListViewModel: ObservableObject {
+  @Published var meals: [MealBase] = []
+  @Published var error: Error? = nil
+  @Published var isShowingError = false
+}
+
 struct DessertListView: View {
   
   var service: MealServiceAPI = MealServiceAPI()
+  @ObservedObject var viewModel = DessertListViewModel()
 
-  @State var meals: [MealBase] = []
-
+  func getMeals() {
+    Task { @MainActor in
+      do {
+        viewModel.meals = try await service.getDessertList()
+      } catch let error {
+        viewModel.error = error
+        viewModel.isShowingError = true
+      }
+    }
+  }
   var body: some View {
     NavigationView {
       ScrollView(.vertical) {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), alignment: .bottom)], spacing: 12) {
-          ForEach(meals.sorted(by: { $0.name < $1.name }), id: \.self) { meal in
+          ForEach(viewModel.meals.sorted(by: { $0.name < $1.name }), id: \.self) { meal in
             NavigationLink {
-              DessertDetailView(id: meal.id)
+              DessertDetailView(viewModel: DessertDetailViewModel(id: meal.id))
                 .environmentObject(service)
                 .navigationTitle(meal.name)
             } label: {
@@ -28,15 +43,18 @@ struct DessertListView: View {
             }
           }
         }
+        .alert(viewModel.error.debugDescription, isPresented: $viewModel.isShowingError) {
+          Button("Retry", role: .cancel) {
+            viewModel.isShowingError = false
+            viewModel.error = nil
+            getMeals()
+          }
+        }
       }
       .navigationBarTitle("Desserts", displayMode: .inline)
     }
     .task {
-      do {
-        meals = try await service.getDessertList()
-      } catch let error {
-        debugPrint(error)
-      }
+      getMeals()
     }
   }
 }
