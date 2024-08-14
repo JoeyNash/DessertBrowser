@@ -89,5 +89,6 @@ struct DessertDetailView_Previews: PreviewProvider {
   }
   static var previews: some View {
     DessertDetailView(viewModel: makePreviewViewModel())
+      .environmentObject(MealServiceAPI())
   }
 }
