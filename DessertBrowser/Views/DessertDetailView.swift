@@ -61,7 +61,7 @@ struct DessertDetailView: View {
         Text(viewModel.mealDetails.instructions)
           .padding()
       }
-      .modifier(LoadingViewOverlay(isShowing: viewModel.isLoading))
+      .modifier(LoadingViewOverlay(isShowing: $viewModel.isLoading))
       .alert(viewModel.error.debugDescription, isPresented: $viewModel.isShowingError) {
         Button("Retry", role: .cancel) {
           viewModel.isShowingError = false

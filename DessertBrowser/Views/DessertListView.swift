@@ -46,7 +46,7 @@ struct DessertListView: View {
             }
           }
         }
-        .modifier(LoadingViewOverlay(isShowing: viewModel.isLoading))
+        .modifier(LoadingViewOverlay(isShowing: $viewModel.isLoading))
         .alert(viewModel.error.debugDescription, isPresented: $viewModel.isShowingError) {
           Button("Retry", role: .cancel) {
             viewModel.isShowingError = false

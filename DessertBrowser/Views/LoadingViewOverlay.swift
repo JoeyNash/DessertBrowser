@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoadingViewOverlay: ViewModifier {
-  @State var isShowing: Bool
+  @Binding var isShowing: Bool
   func body(content: Content) -> some View {
     content
       .overlay(Group {
